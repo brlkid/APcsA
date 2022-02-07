@@ -1,0 +1,20 @@
+1 
+System.out.println(lastName);
+2 
+System.out.printlln(firstname);
+3 
+System.out.println(firstName);
+4 
+String firstName = "Maria";
+String lastName = "Hernandez"; 
+
+new: 
+3 
+System.out.println(lastName);
+unused 
+System.out.printlln(firstname);
+2 
+System.out.println(firstName);
+1
+String firstName = "Maria";
+String lastName = "Hernandez";
