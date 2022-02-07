@@ -18,3 +18,199 @@ System.out.println(firstName);
 1
 String firstName = "Maria";
 String lastName = "Hernandez";
+
+1 
+System.out.println("Violets are blue");
+2 
+System.out.println("Sugar is sweet");
+3 
+System.out.println("Roses are red");
+4 
+System.out.println("And so are you");
+new: 
+2 
+System.out.println("Violets are blue");
+3 
+System.out.println("Sugar is sweet");
+1
+System.out.println("Roses are red");
+4 
+System.out.println("And so are you");
+
+1 
+String name = "Marcus";
+String color = "Blue";
+2 
+} // end of class
+3 
+public static void main(String[] args)
+{
+4 
+System.out.println(Name);
+5 
+} // end main method
+6 
+System.out.println(name);
+7 
+System.out.println(color);
+8 
+public class Test1
+{
+new: 
+3 
+String name = "Marcus";
+String color = "Blue";
+7
+} // end of class
+2 
+public static void main(String[] args)
+{
+not used  
+System.out.println(Name);
+6 
+} // end main method
+4 
+System.out.println(name);
+5 
+System.out.println(color);
+1 
+public class Test1
+{
+
+    1 
+double price = 45;
+2 
+System.out.println(pricePerShirt);
+3 
+double totalCost = price * 2;
+4 
+double pricePerShirt = totalCost / 3;
+new: 
+1 
+double price = 45;
+4 
+System.out.println(pricePerShirt);
+2 
+double totalCost = price * 2;
+3 
+double pricePerShirt = totalCost / 3;
+
+1 
+double total = bill + tip;
+2 
+double tip = bill * 0.20;
+3 
+System.out.println(perpersoncost);
+4 
+System.out.println(perPersonCost);
+5 
+double bill = 89.23;
+6 
+int numPeople = 3;
+double perPersonCost = total / numPeople;
+new: 
+3 
+double total = bill + tip;
+2 
+double tip = bill * 0.20;
+not used  
+System.out.println(perpersoncost);
+5 
+System.out.println(perPersonCost);
+1 
+double bill = 89.23;
+4 
+int numPeople = 3;
+double perPersonCost = total / numPeople;
+
+1 
+public class Test1
+{
+2 
+} // end main method
+3 
+public static void main(String[] args)
+{
+4 
+int total = sInDay * 5;
+5 
+} // end class
+6 
+int sInMin = 60;
+int mInHour = 60;
+int hInDay = 24;
+7 
+System.out.println(total);
+8 
+int sInDay = sInMin * mInHour * hInDay;
+9 
+public Class Test1
+{
+    new: 
+1 
+public class Test1
+{
+7 
+} // end main method
+2 
+public static void main(String[] args)
+{
+5 
+int total = sInDay * 5;
+8
+} // end class
+3 
+int sInMin = 60;
+int mInHour = 60;
+int hInDay = 24;
+6 
+System.out.println(total);
+4 
+int sInDay = sInMin * mInHour * hInDay;
+not used  
+public Class Test1
+{
+
+    1 
+} // end main method
+} // end class
+2 
+System.out.println(numMonths);
+3 
+double weeklyRate = 50;
+double goal = 500;
+4 
+public void main(String[] args)
+{
+5 
+double numMonths = numWeeks / 4;
+6 
+public static void main(String[] args)
+{
+7 
+double numWeeks = goal / weeklyRate;
+8 
+public class Test1
+{
+    new:
+6 
+} // end main method
+} // end class
+6 
+System.out.println(numMonths);
+3 
+double weeklyRate = 50;
+double goal = 500;
+not used  
+public void main(String[] args)
+{
+5 
+double numMonths = numWeeks / 4;
+2 
+public static void main(String[] args)
+{
+4
+double numWeeks = goal / weeklyRate;
+1 
+public class Test1
+{
