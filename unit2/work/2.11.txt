@@ -1,0 +1,146 @@
+
+2.11. Mixed Up Code Practice
+Try to solve each of the following mixed-up code problems or try the experimental switch between mixed up or write code versions of these problems on the next page instead.
+For these mixed up code problems, drag the blocks into the correct order. Click the Check Me button to check each solution. You will be told if your solution is too short, has a block in the wrong order, or you are using the wrong block. Some of the problems may have an extra block that isn’t needed in the correct solution. After 3 tries, you can ask for help and some of the blocks will be combined. You can solve these on your phone or other mobile device!
+The main method in the following class should print a random number from 1 to 50. But, the blocks have been mixed up and may include an extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+1 
+int num = Math.random() * 50;
+Drop blocks here
+2 
+public class Test1{
+3 
+public static void main(String[] args){
+4 
+int num = (int)(Math.random() * 50) + 1;
+5 
+System.out.println(num);
+6 
+} // end main method
+7 
+} // end of class
+CheckResetHelp me
+Parsons (ch3ex3muc)
+The main method in the following class should print the first 2 characters of the message followed by the last 2 characters of the message. But, the blocks have been mixed up and include an extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+1 
+System.out.println(part1 * part2);
+Drop blocks here
+2 
+public class Test1{
+3 
+public static void main(String[] args){
+4 
+String message = "I hope this works";
+5 
+String part1 = message.substring(0,2);String part2 = message.substring(message.length() - 2);
+6 
+System.out.println(part1 + part2);
+7 
+} // end main method
+8 
+} // end class
+CheckResetHelp me
+Parsons (ch4ex4muc)
+The main method in the following class should print the initials in lowercase letters. But, the blocks have been mixed up and include an extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+1  
+System.out.println(initials);
+Drop blocks here
+2  
+public class Test1{
+3  
+public static void main(String[] args)
+4  
+{
+5  
+String first = "Gerald";String middle = "Foster";String last= "Jones";
+6  
+String initials = first.substring(0,1) +middle.substring(0,1) +last.substring(0,1);
+7  
+String lowerInitials = initials.toLowerCase();
+8  
+System.out.println(lowerInitials);
+9  
+}
+10 
+}
+CheckResetHelp me
+Parsons (ch4ex7muc)
+The main method in the following class should print the message in all uppercase letters. But, the blocks have been mixed up and include an extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+1 
+System.print(upperMessage);
+Drop blocks here
+2 
+public class Test1{
+3 
+public static void main(String[] args)
+4 
+{
+5 
+String message = "Don't Pokemon and drive!";
+6 
+String upperMessage = message.toUpperCase();
+7 
+System.out.println(upperMessage);
+8 
+}
+9 
+}
+CheckResetHelp me
+Parsons (ch4ex8muc)
+The main method in the following class should print the first 3 letters of message in uppercase letters. But, the blocks have been mixed up and include an extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+1  
+String part = message.substring(0,4);
+Drop blocks here
+2  
+public class Test1{
+3  
+public static void main(String[] args)
+4  
+{
+5  
+String message = "Have a nice day!";
+6  
+String part = message.substring(0,3);
+7  
+String upper = part.toUpperCase();
+8  
+System.out.println(upper);
+9  
+}
+10 
+}
+CheckResetHelp me
+Parsons (ch4ex9muc)
+The main method in the following class should print the part of the message starting with the word “nice”. But, the blocks have been mixed up and include an extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+1 
+int pos = message.indexof("nice");
+Drop blocks here
+2 
+public class Test1{
+3 
+public static void main(String[] args)
+4 
+{
+5 
+String message = "Have a nice day!";
+6 
+int pos = message.indexOf("nice");
+7 
+System.out.println(message.substring(pos));
+8 
+}
+9 
+}
+CheckResetHelp me
+Parsons (ch4ex10muc)
+You have attempted 7 of 7 activities on this page
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

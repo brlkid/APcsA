@@ -1,0 +1,254 @@
+2.6. Strings
+Strings in Java are objects of the String class that hold sequences of characters (a, b, c, $, etc). Remember that a class (or classification) in Java defines the data that all objects of the class have (the fields) and the behaviors, the things that objects know how to do (the methods).
+You can declare a variable to be of type String.
+Note
+Class names in Java, like String, begin with a capital letter. All primitive types: int, double, and boolean, begin with a lowercase letter. This is one easy way to tell the difference between primitive types and class types.
+Run the following code. What does it print?
+public class Test1
+{
+   public static void main(String[] args)
+   {
+     String greeting = null;
+     System.out.println(greeting);
+   }
+}
+null
+Activity: 2.6.1 ActiveCode (lcsb1)
+The code above declares an object variable named greeting and sets the value of greeting to the Java keyword null to show that it doesn’t refer to any object yet. So System.out.println(greeting); will print null.
+Object variables refer to objects in memory. A reference is a way to find the actual object, like adding a contact to your phone lets you reach someone without knowing exactly where they are. The value of greeting is null since the string object has not been created yet.
+
+Figure 1: Initial value for an object reference
+In Java there are two ways to create an object of the String class. You can use the new keyword followed by a space and then the class constructor and then in parentheses you can include values used to initialize the fields of the object. This is the standard way to create a new object of a class in Java.
+String greeting = new String("Hello");
+In Java you can also use just a string literal, which is a set of characters enclosed in double quotes ("), to create a String object.
+String greeting = "Hello";
+In both cases an object of the String class will be created in memory and the value of the variable greeting will be set to an object reference, a way to find that object.
+ Coding Exercise:
+Here is an active code sample that creates two greeting strings: one using a string literal and the other using new and the String constructor. Change the code to add 2 new strings called firstname and lastname, one using a string literal and the other using new, and print them out with the greetings.
+1
+public class StringTest
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+       String greeting1 = "Hello!";
+6
+       String greeting2 = new String("Welcome!");
+7
+       System.out.println(greeting1);
+8
+       System.out.println(greeting2);
+9
+       String firstname = "Paul";
+10
+       String lastname = new String("McCartney");
+11
+       System.out.print(greeting1 + " " + firstname + " " + lastname);
+12
+    }
+13
+ }
+14
+ 
+Hello!
+Welcome!
+Hello! Paul McCartney
+Activity: 2.6.2 ActiveCode (lcsbnew)
+Now that greeting refers to an actual object we can ask the object what class created it. Try the following. What does it print?
+1
+public class Test2
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+     String greeting = "Hello";
+6
+     Class currClass = greeting.getClass();
+7
+     System.out.println(currClass);
+8
+     Class parentClass = currClass.getSuperclass();
+9
+     System.out.println(parentClass);
+10
+   }
+11
+}
+12
+​
+class java.lang.String
+class java.lang.Object
+Activity: 2.6.3 ActiveCode (lcsb2)
+The code above will first print class java.lang.String since greeting was created by the String class. The full name for the String class is java.lang.String. The java.lang part is the package name. Every class in the Java language is in a package and the standard classes like String are in the java.lang package. Every object in Java knows the class that created it. Also, every class knows its parent class. Yes, a class can have a parent class, just as people have parents. But, in Java a class can only have one parent. A class can inherit object fields and methods from a parent class, just like you might inherit musical ability from a parent. The fourth line will print class java.lang.Object because the parent class (superclass) of the String class is the Object class. All classes in Java inherit from the Object class at some point in their ancestry.
+
+Figure 2: Object variable of type String with a reference to a String object which has a reference to the String class which has a reference to the Object class.
+2.6.1. String Operators - Concatenation
+Strings can be appended to each other to create a new string using the + or += operator . This is also called concatenation.
+Try the following code. Add another variable for a lastname that is “Hernandez”. Use += or + to add the lastname variable after name to the result. Use += or + to add 2 more exclamation points (!) to the end of the happy birthday greeting in result.
+1
+public class Test1
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+       String start = "Happy Birthday";
+6
+       String name = "Jose";
+7
+       String lastname = "Hernandez";
+8
+       String result = start + " " + name + " " + lastname + "!!";  // add together strings
+9
+       result += "!"; // add on to the same string
+10
+       System.out.println(result);
+11
+   }
+12
+}
+13
+​
+Happy Birthday Jose Hernandez!!!
+Activity: 2.6.1.1 ActiveCode (lcso1)
+Note
+Note that spaces are not added between strings automatically. If you want a space between two strings then add one using + ” ” +. If you forget to add spaces, you will get smushed output like “HiJose” instead of “Hi Jose”. And remember that variables are never put inside the quotes (“”) since this would print the variable name out letter by letter instead of its value.
+ Check Your Understanding
+2-6-5: Given the following code segment, what is in the string referenced by s1?
+String s1 = "xy";
+String s2 = s1;
+s1 = s1 + s2 + "z";
+( )A. xyz
+(x )B. xyxyz
+( )C. xy xy z
+( )D. xy z
+( )E. z
+Activity: 2.6.1.2 Multiple Choice (qse_1)
+You can even add other items to a string using the + operator. The other item will be converted to a string using the toString operator if it is an object and then appended to the current string. All objects inherit a toString method that returns a string representation of the object.
+ Coding Exercise:
+What do you think the following will print? Guess before you hit run. If you want the addition to take place before the numbers are turned into a string what should you do? Try to modify the code so that it adds 4 + 3 before appending the value to the string. Hint: you used this to do addition before multiplication in arithmetic expressions.
+1
+public class Test2
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+   int sum = 4+3; 
+6
+     String message = "12" + sum;
+6
+     System.out.println(message);
+7
+   }
+8
+}
+9
+​
+Activity: 2.6.1.3 ActiveCode (lcso2)
+Note
+If you are appending a number to a string it will be converted to a string first before being appended.
+Since the same operators are processed from left to right this will print 1243. First 4 will be turned into a string and appended to 12 and then 3 will be turned into a string and appended to 124. If you want to do addition instead, try using parentheses!
+What if you wanted to print out a double quote ” character? Since the double quote ” is a special character with meaning in Java, we put in a backslash in front of the quote to signal that we want just the character. This is called a backslash escape sequence. And if you wanted to print out a backslash, you would have to backslash it too in order to escape its special meaning. Another useful backslashed character is backslash \n which will put in a newline.
+Here are the escape sequences that may be used in the AP course.
+1
+public class TestEscape
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+     String message = "Here is a backslash quote \" " +
+6
+       " and a backslashed backslash (\\) " +
+7
+       "Backslash n \n prints out a new line.";
+8
+     System.out.println(message);
+9
+   }
+10
+}
+11
+​
+Activity: 2.6.1.4 ActiveCode (bhescape)
+2.6.2.  Programming Challenge : Mad Libs
+Have you ever played MAD LIBS? In this game, you first choose a bunch of words without looking at the story and then those words are filled into the story to make it sound very wacky! Fill in the variables below with Strings for each word, and then run to see the wacky story.
+Then, working in pairs, come up with another silly story that uses at least 5 new String variables. When you’re done, try another team’s mad libs code. Your teacher may ask you to create this program in a Java IDE like repl.it so that you can use input to read in the words (see input examples using the Scanner class).
+If you used repl.it for this challenge, copy the url of your repl here to turn in.
+1
+public class MadLibs1
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+     // fill these in with silly words/strings (don't read the poem yet)
+6
+     String pluralnoun1 = "bananas";
+7
+     String color1 = "pruple";
+8
+     String color2 = "blue";
+9
+     String food = "apple";
+10
+     String pluralnoun2 = "cars";
+11
+​
+12
+​
+13
+     // Run to see the silly poem!
+14
+     System.out.println("Roses are " + color1);
+15
+     System.out.println(pluralnoun1 + " are " + color2);
+16
+     System.out.println("I like " + food);
+17
+     System.out.println("Do " + pluralnoun2 + " like them too?");
+18
+​
+19
+     // Now come up with your own silly poem!
+20
+//fill in the variables: 
+String fruit = "";
+String name = "";
+String number = "";
+String town = "";
+String name2 = "";
+String verb = ""; 
+String feeling = "";
+Story = "one day "+name+" was shopping at the "+town+" market buying "+number+" "+fruit+". "+name2+" came up to talk to him and he dropped all the fruit which made him very "+feeling+".";
+System.out.println(story);
+21
+   }
+22
+}
+23
+​
+Activity: 2.6.2.1 ActiveCode (challenge2-6-MadLibs)
+2.6.3. Summary
+• Strings in Java are objects of the String class that hold sequences of characters.
+• String objects can be created by using string literals (String s = “hi”;) or by calling the String class constructor (String t = new String(“bye”);).
+• new is used to create a new object of a class.
+• null is used to indicate that an object reference doesn’t refer to any object yet.
+• String objects can be concatenated using the + or += operator, resulting in a new String object.
+• Primitive values can be concatenated with a String object. This causes implicit conversion of the values to String objects.
+• Escape sequences start with a backslash \ and have special meaning in Java. Escape sequences used in this course include ", \, and \n to print out a quote, backslash, and a new line.

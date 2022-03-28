@@ -1,0 +1,220 @@
+2.9. Using the Math Class
+Games would be boring if the same thing happened each time you played the game. Games often use random numbers to generate different possibilities. You need to know how to use the Math.random() method to generate a random number.
+There are lots of mathematical methods that you might want to use in your programs like Math.abs(int) which calculates the absolute value of an int argument (which is the value of a number without its sign, for example Math.abs(-4) = 4).
+These methods are in the Math class defined in the java.lang package. These are static methods which means you can call them by just using ClassName.methodName() without creating an object. This is why we can just say Math.random() instead of having to define an object of the class Math.
+Note
+Static methods (also called class methods) are called using the class name and the dot operator (.) followed by the method name. You do not need to create an object of the class to use them. You can use ClassName.methodName() or just methodName() if they are called from within the same class.
+The Math.random() method returns a number greater than or equal to 0.0, and less than 1.0.
+Try out the following code. Run it several times to see what it prints each time.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+public class Test3
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+     System.out.println(Math.random());
+6
+     System.out.println(Math.random());
+7
+   }
+8
+}
+9
+​
+Activity: 2.9.1 ActiveCode (random1)
+You can use Math.random and a cast to integer to return a random integer between some starting and ending value. The code below will create a random integer from 0 to 9. Remember that casting a double value to integer (int) will throw away any values after the decimal point.
+ Coding Exercise
+Run the code below several times to see how the value changes each time. How could you change the code to return a random integer from 1 to 10? Modify the code and see if your answer is correct. Try removing the parentheses from around (Math.random() * 10) and run the code several times. What happens? The parentheses are necessary because (int) will cast the closest expression, and (int)Math.random() will always be 0 since anything after the decimal point is dropped.
+1
+public class Test4
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+     System.out.println((int) (Math.random() * 10));
+6
+   }
+7
+}
+8
+​
+Activity: 2.9.2 ActiveCode (randomRange)
+Note
+• Math.random() returns a random number between 0.0-0.99.
+• (int)(Math.random()*range) + min moves the random number into a range starting from a minimum number.
+• The range is the (max number - min number + 1).
+Here are some examples that move a random number into a specific range.
+// Math.random() returns a random number between 0.0-0.99.
+double rnd = Math.random();
+
+// rnd1 is an integer in the range 0-9 (including 9).
+int rnd1 = (int)(Math.random()*10);
+
+// rnd2 is in the range 1-10 (including 10). The parentheses are necessary!
+int rnd2 = (int)(Math.random()*10) + 1;
+
+// rnd3 is in the range 5-10 (including 10). The range is 10-5+1 = 6.
+int rnd3 = (int)(Math.random()*6) + 5;
+
+// rnd4 is in the range -10 up to 9 (including 9). The range is doubled (9 - -10 + 1 = 20) and the minimum is -10.
+int rnd4 = (int)(Math.random()*20) - 10;
+ Check your understanding
+2-9-3: Which of the following would be true about 40% of the time?
+(x)A. Math.random() < 0.4
+( )B. Math.random() > 0.4
+( )C. Math.random() == 0.4
+Check MeCompare me
+Activity: 2.9.3 Multiple Choice (qrand_1)
+2-9-4: Which of the following would return a random number from 1 to 5 inclusive?
+( )A. ((int) (Math.random() * 5))
+( )B. ((int) (Math.random() * 6))
+(x)C. ((int) (Math.random() * 5) + 1)
+Activity: 2.9.4 Multiple Choice (qrand_2)
+2-9-5: Which of the following would return a random number from 0 to 10 inclusive?
+( x)A. ((int) (Math.random() * 10))
+( )B. ((int) (Math.random() * 11))
+()C. ((int) (Math.random() * 10) + 1)
+Check MeCompare me
+Activity: 2.9.5 Multiple Choice (qrand_3)
+2-9-6: Which of the following would be true about 75% of the time?
+( )A. Math.random() < 0.25
+(x)B. Math.random() > 0.25
+( )C. Math.random() == 0.25
+Check MeCompare me
+Activity: 2.9.6 Multiple Choice (qrand_4)
+ AP CSA Sample Problem
+2-9-7: Which of the following statements assigns a random integer between 25 and 60, inclusive, to rn?
+( )A. int rn = (int) (Math.random() * 25) + 36;
+( )B. int rn = (int) (Math.random() * 25) + 60;
+( )C. int rn = (int) (Math.random() * 26) + 60;
+( )D. int rn = (int) (Math.random() * 36) + 25;
+(x)E. int rn = (int) (Math.random() * 60) + 25;
+Check MeCompare me
+Activity: 2.9.7 Multiple Choice (apcsa_sample3)
+Other Math functions that you can use are:
+• int abs(int) : Returns the absolute value of an int value (which is the value of a number without its sign, for example Math.abs(-4) = 4).
+• double abs(double) : Returns the absolute value of a double value.
+• double pow(double, double) : Returns the value of the first parameter raised to the power of the second parameter.
+• double sqrt(double) : Returns the positive square root of a double value.
+• double random() : Returns a double value greater than or equal to 0.0 and less than 1.0 (not including 1.0!).
+These are all listed in the AP CS A Java Quick Reference Sheet that you can use during the exam.
+2.9.1.  Programming Challenge : Random Numbers
+
+You may have a combination lock on your locker at school where you have to spin the dial to 3 separate numbers from 0 up to 40. What if you forgot your combination? Would you be able to guess it?
+1. Write code that will generate 3 random integers from 0 up to 40 (but not including 40) using Math.random() in the Active Code window below. Run it a couple times to see it generate different numbers.
+2. How many times would you need to run it to guess your combination correctly? Let’s have the code compute the number of permutations possible in your combination lock using Math.pow(number,exponent). For example, if you had 2 dials on your combination lock where each dial can be set to a digit from 0-9 (10 digits), there are 102 possible permutations. In Java, this would be written as Math.pow(10,2) which means 10 to the power of 2. If you start listing all the permutations possible, you can tell that there are 102 or 100 possible permutations for a 2 dial lock from 0-9.
+00, 01, 02, 03, 04, 05, 06, 07, 08, 09
+10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+...
+90, 91, 92, 93, 94, 95, 96, 97, 98, 99
+Now what about the combination lock for this challenge? It has 3 dials with 0-40 (not including 40) numbers possible on each dial. In general, the formula to use is NumbersPerDialnumberOfDials. Write this using the Math.pow() method in your code and save it into a variable and print out.
+Complete the combination lock challenge below.
+1
+public class MathChallenge
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+       // 1. Use Math.random() to generate 3 integers from 0-40 (not including 40) and print them out.
+6
+int n1 = Math.random()*40;
+int n2 = Math.random()*40;
+int n3 = Math.random()*40;
+
+7
+​
+8
+       // 2. Calculate the number of combinations to choose 3 numbers between 0-40 (not including 40) using Math.pow() and print it out.
+9
+       // For example, Math.pow(10,2) is 10^2 and the number of permutations to choose 2 numbers between 0-9.
+10
+int permutations = Math.pow(40,3);
+System.out.println("permutations: "+permutations);
+11
+​
+12
+   }
+13
+}
+14
+​
+Activity: 2.9.1.1 ActiveCode (challenge2-9-random-math)
+Here’s another challenge that is a lot of fun! Can you use random numbers to make dancing turtles? This idea was suggested by CSA teacher Zac Martin.
+Complete the random numbers using Math.random() in the correct ranges to choose x, y coordinates and random color in the range of 0-255 for the turtle. Put on some music and watch your turtle dance!
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+import java.util.*;
+2
+import java.awt.*;
+3
+​
+4
+public class DancingTurtles
+5
+{
+6
+  public static void main(String[] args)
+7
+  {
+8
+​
+9
+      World world = new World(500,400);
+10
+      Turtle yertle = new Turtle(world);
+11
+​
+12
+      // This is a loop that runs 10 times (you will learn to write loops in Unit 4)
+13
+      for(int i=1; i <= 10; i++)
+14
+      {
+15
+       // Can you choose a randomX between 0-500?
+16
+       // Can you adjust for the 20 pixel width of the turtle,
+17
+       // so it doesn't get cut off at the edges?
+18
+       // Move the range from 20 to 480.
+19
+       int randomX = Math.random()*480+20;
+20
+       // Can you choose a randomY between 0-400?
+21
+       // Can you adjust for the 20 pixel height of the turtle,
+22
+       // so it doesn't get cut off at the edges?
+23
+       int randomY = Math.random()*380+20;
+24
+​
+Activity: 2.9.1.2 ActiveCode (challenge-2-9b-dancing-turtles)
+2.9.2. Summary
+• Static Math methods can be called using Math.method(); for each method.
+• The following static Math methods are part of the Java Quick Reference:
+◦ int abs(int) : Returns the absolute value of an int value (which means no negatives).
+◦ double abs(double) : Returns the absolute value of a double value.
+◦ double pow(double, double) : Returns the value of the first parameter raised to the power of the second parameter.
+◦ double sqrt(double) : Returns the positive square root of a double value.
+◦ double random() : Returns a double value greater than or equal to 0.0 and less than 1.0 (not including 1.0)!
+• The values returned from Math.random can be manipulated to produce a random int or double in a defined range.
+• (int)(Math.random()*range) + min moves the random number into a range starting from a minimum number. The range is the (max number - min number + 1). For example, to get a number in the range of 5 to 10, use the range 10-5+1 = 6 and the min number 5: (int)(Math.random()*6) + 5.
+You have attempted 1 of 10 activities on this page
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

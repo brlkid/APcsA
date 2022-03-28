@@ -1,0 +1,305 @@
+3.11. Coding Practice
+• Question
+• Answer
+• Discussion
+The following code should print x is greater than 0. However, the code has errors. Fix the code so that it compiles and runs correctly.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        int x = 3;
+6
+        if (x > 0) {
+7
+            System.out.println("x is greater than 0") }
+8
+        else {
+9
+            System.out.println(x is less than or equal 0"); }
+10
+    }
+11
+}
+12
+​
+Activity: 3.11.1 ActiveCode (ch5Ex1q)
+The following code should check your guess against the answer and print that it is too low, correct, or too high. However, the code has errors. Fix the code so that it compiles and runs correctly.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        int guess = 7;
+6
+        int answer = 9;
+7
+        if (guess < answer) {
+8
+            System.out.println("Your guess is too low); }
+9
+        else if (guess = answer) {
+10
+            System.out.println("You are right!"); }
+11
+        else {
+12
+            System.out.println("Your guess is too high"); }
+13
+    }
+14
+}
+15
+​
+Activity: 3.11.3 ActiveCode (ch5Ex2q)
+The following code should print “You can go out” if you have done your homework and cleaned your room. However, the code has errors. Fix the code so that it compiles and runs correctly.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        boolean doneHomework = True;
+6
+        boolean cleanedRoom = true;
+7
+        if !(doneHomework && cleanedRoom) {
+8
+             System.out.println("You cannot go out"); }
+9
+        else {
+10
+            System.out.println("You can go out"); }
+11
+    }
+12
+}
+13
+​
+Activity: 3.11.5 ActiveCode (ch5Ex3q)
+The following code should print if x is in the range of 0 to 10 (including 0 and 10). However, the code has errors. Fix the errors so that the code runs as intended.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        int x = 3
+6
+        if (x >= 0 && x <= 10) {
+7
+            System.out.println("x is between 0 and 10 inclusive");
+8
+        else {
+9
+            System.out.println("x is either less than 0 or greater than 10"); }
+10
+    }
+11
+}
+12
+​
+Activity: 3.11.7 ActiveCode (ch5Ex4q)
+The following code should print if x is less than 0, equal to 0, or greater than 0. Finish it to work correctly.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        int x = -3;
+6
+        if (x < 0)
+7
+            System.out.println("x is less than 0");
+8
+if (x > 0)
+{
+System.out.print("x is greater than 0");
+}
+if (x == 0)
+{
+System.out.print("x equals 0");
+}
+9
+    }
+10
+​
+11
+}
+12
+​
+Activity: 3.11.9 ActiveCode (ch5Ex5q)
+Finish the code below so that it prints You can go out if you have a ride or if you can walk and otherwise prints You can't go out. Use a logical or to create a complex conditional.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        boolean canWalk = true;
+6
+        boolean haveRide = false;
+7
+if (canWalk || haveRide) 
+{
+System.out.print("can go out");
+}
+else
+{
+System.out.print("nope"); }
+8
+    }
+9
+}
+10
+​
+Activity: 3.11.11 ActiveCode (ch5Ex6q)
+Finish the code below to print you can go out if you don’t have homework and you have done the dishes.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        boolean haveHomework = false;
+6
+        boolean didDishes = true;
+7
+if (haveHomework==false && didDishes) 
+{
+System.out.print("can go out");
+}
+else
+{
+System.out.print("nope"); }
+8
+    }
+9
+}
+10
+​
+Activity: 3.11.13 ActiveCode (ch5Ex7q)
+Finish the following code so that it prints You have a fever if your temperature is above 100 and otherwise prints You don't have a fever.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        double temp = 103.5;
+6
+if (temp > 200)
+{
+System.out.print("you've got the vid")
+}
+else 
+{
+System.out.print("you probably aren't sick. I'm not a doctor, don't sue me."); }
+    }
+7
+}
+8
+​
+Activity: 3.11.15 ActiveCode (ch5Ex8q)
+Finish the code to print It is freezing if the temperature is below 30, It is cold if it is below 50, It is nice out if it is below 90, or It is hot using nested if else statements.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        int temp = 100;
+6
+if (temp < 30) {
+System.out.print("it is freezing"); }
+else if (temp < 50) {
+System.out.print(it is cool"); }
+else if (temp <90) {
+System.out.print("it is nice"); }
+else {
+System.out.print("it is hot"); }
+7
+    }
+8
+}
+9
+​
+Activity: 3.11.17 ActiveCode (ch5Ex9q)
+Finish the code below to print your grade based on your score. The score is an A if you scored 92 or higher, a B if you scored 82 to 91, a C if you scored 72 to 81, a D if you scored a 62 to 71, or an E.
+1
+public class Test1
+2
+{
+3
+    public static void main(String[] args)
+4
+    {
+5
+        int score = 67;
+6
+if (score < 62) {
+System.out.print("E"); }
+else if (score < 71) {
+System.out.print("D"); }
+if (score < 82) {
+System.out.print("C"); }
+else if (score < 92) {
+System.out.print("B"); }
+else {
+System.out.print("A"); }
+7
+    }
+8
+}
+9
+​
+Activity: 3.11.19 ActiveCode (ch5Ex10q)
+For more practice with conditionals, and especially complex conditionals, go to http://codingbat.com/java/Logic-1 and http://codingbat.com/java/Logic-2
+In particular we recommend solving the following problems
+• http://codingbat.com/prob/p118290
+• http://codingbat.com/prob/p183071
+• http://codingbat.com/prob/p110973
+• http://codingbat.com/prob/p103360
+• http://codingbat.com/prob/p169213
+• http://codingbat.com/prob/p178728
+• http://codingbat.com/prob/p115233
+
+
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157
