@@ -1,0 +1,227 @@
+5.7. Static Variables and Methods
+In Unit 2, we explored the Math class and its many static methods like Math.random(), and we’ve always used a main method which is static. In this lesson, you will learn to write your own static variables and methods.
+• Static variables and methods belong to a class and are called with the Class Name rather than using object variables, like ClassName.methodName();
+• There is only one copy of a static variable or method for the whole class. For example, the main method is static because there should only be 1 main method.
+• Static methods can be public or private.
+• The static keyword is placed right after the public/private modifier and right before the type of variables and methods in their declarations.
+class ClassName {
+  // static variable
+  public static type variableName;
+
+  // static method
+  public static returnType methodName(parameters) {
+        // implementation not shown
+  }
+}
+// To call a static method or variable, use the Class Name
+System.out.println(ClassName.staticVariable);
+ClassName.staticMethod();
+Static methods only have access to other static variables and static methods. Static methods cannot access or change the values of instance variables or the this reference (since there is no calling object for them), and static methods cannot call non-static methods. However, non-static methods have access to all variables (instance or static) and methods (static or non-static) in the class.
+Since there is only 1 copy of a static variable or method, static variables are often used to count how many objects are generated. In the following class Person, there is a static variable called personCounter that is incremented each time the Person constructor is called to initialize a new Person object. The static method printCounter() prints out its value. You can also watch how it works in the Java visualizer by clicking the CodeLens button below.
+What will the following code print out? Try adding another Person object and see what happens. Try the CodeLens button to run the code step by step.
+1
+public class Person
+2
+{
+3
+   // instance variables
+4
+   private String name;
+5
+   private String email;
+6
+   private String phoneNumber;
+7
+​
+8
+   // Static counter variable
+9
+   public static int personCounter = 0;
+10
+​
+11
+   // static method to print out counter
+12
+   public static void printPersonCounter() {
+13
+        System.out.println("Person counter: " + personCounter);
+14
+   }
+15
+​
+16
+   // constructor: construct a Person copying in the data into the instance variables
+17
+   public Person(String initName, String initEmail, String initPhone)
+18
+   {
+19
+      name = initName;
+20
+      email = initEmail;
+21
+      phoneNumber = initPhone;
+22
+      personCounter++;
+23
+   }
+24
+​
+
+Activity: 5.7.1 ActiveCode (PersonClassStaticCounter)
+Another common use for static variables is the keep track of a minimum or maximum value or an average of the values in a collection of objects.
+ Check Your Understanding
+5-7-2: Consider the class Temperature below which has a static variable. What is the output of the main method below?
+public class Temperature
+{
+   private double temperature;
+   public static double maxTemp = 0;
+
+   public Temperature(double t)
+   {
+        temperature = t;
+        if (t > maxTemp)
+            maxTemp = t;
+   }
+
+   public static void main(String[] args)
+   {
+        Temperature t1 = new Temperature(75);
+        Temperature t2 = new Temperature(100);
+        Temperature t3 = new Temperature(65);
+        System.out.println("Max Temp: " + Temperature.maxTemp);
+   }
+ }
+( )A. Max Temp: 0
+
+
+( )B. There is a compiler error because the static variable maxTemp cannot be used inside a non-static constructor.
+
+
+(x)C. Max Temp: 100
+
+
+( )D. Max Temp: 75
+
+
+( )E. Max Temp: 65
+
+Check MeCompare me
+Activity: 5.7.2 Multiple Choice (staticTrace)
+You can see this code in action in the Java visualizer.
+ Coding Exercise
+Fix the bugs in the following code.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+public class Temperature
+2
+{
+3
+  private double temperature;
+4
+  public static double maxTemp = 0;
+5
+​
+6
+  public void Temperature(double t)
+7
+  {
+8
+      temperature = t;
+9
+      if (t > maxTemp)
+10
+         maxTemp = t;
+11
+  }
+12
+​
+13
+  public static void printMax()
+14
+  {
+15
+     System.out.println(maxTemp);
+16
+  }
+17
+​
+18
+  public static void main(String[] args)
+19
+  {
+20
+     Temperature t1 = new Temperature(75);
+21
+     Temperature t2 = new Temperature(100);
+22
+     Temperature.printMax();
+23
+  }
+24
+ }
+Activity: 5.7.3 ActiveCode (TemperatureBugs)
+5.7.1.  Programming Challenge : Static Song and counter
+In the last lesson, we wrote a class with methods to print out the song The Ants Go Marching. Notice that this is a class where there are no instance variables and we don’t really need to generate multiple objects. With students or pets, it makes sense to have multiple objects. With the Song, we can just make the methods static and have just 1 copy of them.
+1. Copy in your class from the last lesson into this active code window. Change the method(s) that print out the verses of the Song to be static. In the main method, change how you call the static methods by using just the classname instead of creating an object.
+2. Add a public static variable called numVerses to the class that keeps track of the number of verses. Increment this variable in the method verse and print it out at the beginning of the verse.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+public class Song
+2
+{
+3
+public static num numVerse;
+4
+​
+5
+​
+6
+public static void verse(String rhyme, String number) {
+System.out.println(" The ants go marching "+number+" by "+number+", hurrah, hurrah");
+System.out.println(" The ants go marching "+number+" by "+number+", hurrah, hurrah");
+System.out.println(" The ants go marching "+number+" by "+number+", hurrah, hurrah");
+System.out.println("The little one stops to "+rhyme);
+System.out.println("And they all go marching down to the ground");
+System.out.println("To get out of the rain, BOOM! BOOM! BOOM! BOOM!");
+System.out.println();
+numVerse++;
+}
+7
+​
+8
+​
+9
+​
+10
+  public static void main(String args[])
+11
+  {
+12
+song.verse("thumb", "one"); 
+song.verse("tie his shoe", "two"); 
+song.verse("tree", "three"); 
+System.out.println(song.numVerse);
+14
+​
+15
+  }
+16
+}
+17
+​
+Activity: 5.7.1.1 ActiveCode (challenge-5-7-static-song)
+5.7.2. Summary
+• Static methods and variables include the keyword static before their name in the header or declaration. They can be public or private.
+• Static variables belong to the class, with all objects of a class sharing a single static variable.
+• Static methods are associated with the class, not objects of the class.
+• Static variables are used with the class name and the dot operator, since they are associated with a class, not objects of a class.
+• Static methods cannot access or change the values of instance variables, but they can access or change the values of static variables.
+• Static methods cannot call non-static methods.
+
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

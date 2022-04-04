@@ -1,0 +1,407 @@
+5.6. Writing Methods
+Up until this unit, you wrote all your code in the main method, but now we are using lots of methods. Why have multiple methods instead of just one? Procedural Abstraction allows us to name a block of code as a method and call it whenever we need it, abstracting away the details of how it works. This serves to organize our code by function and reduce its complexity and reduce the repetition of code. In addition, it helps with debugging and maintenance since changes to that block of code only need to happen in one place. Here are some of the main reasons to use multiple methods in your programs:
+• Organization and Reducing Complexity: organize your program into small sections of code by function to reduce its complexity. Divide a problem into subproblems to solve it a piece at a time.
+• Reusing Code: avoid repetition of code. Reuse code by putting it in a method and calling it whenever needed.
+• Maintainability and Debugging: smaller methods are easier to debug and understand than searching through a large main method.
+Let’s look at an example with lots of repetition of code and create methods to reduce the repetition of code.
+ Check Your Understanding
+5-6-1: Click on all the lines that are completely identical and repeated. 
+public static void main(String args[]) {X
+    System.out.println("This old man, heX played one.");
+    System.out.println("He played knick Xknack on my thumb. ");
+    System.out.println("With a knick knack paddy whack, give a dog a bone.");
+    System.out.println("This old man came rolling home.");
+    System.out.println("This old man, he played two.");
+    System.out.println("He played knick knack on my shoe. ");
+    System.out.println("With a knick knack paddy whack, give a dog a bone.");
+    System.out.println("This old man came rolling home.");
+}
+the chorus 
+
+Activity: 5.6.1 Clickable (repeatedcode)
+Did you find some repeated lines of the This Old Man song? You may have noticed that the chorus is repeated “With a knick knack paddy whack, give a dog a bone. This old man came rolling home.” When you see repeated code, that is a signal for you to make a new method!
+There are three steps to creating and calling a method:
+1. Object of the Class: Declare an object of your class in the main method or from outside the class.
+2. // Step 1: declare an object in main or from outside the class
+3. Classname objectName = new Classname();
+4. Method Call: whenever you want to use the method, call objectName.methodName();
+5. // Step 2: call the object's method
+6. objectName.methodName(); //Step 2
+7. Method Definition: write the method’s header and body code like below:
+8. // Step 3: Define the method in the class
+9. // method header
+10. public void methodName()
+11. {
+12.       // method body for the code
+13. }
+For example, here is a chorus() method definition that we could write for the “This Old Man Song”:
+public void chorus()
+{
+      System.out.println("With a knick knack paddy whack, give a dog a bone.");
+      System.out.println("This old man came rolling home.");
+}
+ Coding Exercise
+Run the following code to see the song This Old Man print out. Can you replace the last two lines in the second verse in the main method with a call the chorus() method instead? You can also see this code run in the Java visualizer by clicking on the Code Lens button.
+1
+public class Song
+2
+{
+3
+  // The chorus method
+4
+  public void chorus()
+5
+  {
+6
+     System.out.println("With a knick knack paddy whack, give a dog a bone.");
+7
+     System.out.println("This old man came rolling home.");
+8
+  }
+9
+​
+10
+  public static void main(String args[])
+11
+  {
+12
+      Song mySong = new Song();
+13
+      System.out.println("This old man, he played one.");
+14
+      System.out.println("He played knick knack on my thumb. ");
+15
+      mySong.chorus();
+16
+​
+17
+      System.out.println("This old man, he played two.");
+18
+      System.out.println("He played knick knack on my shoe. ");
+19
+      // Can you replace these 2 lines with a method call to chorus()?
+20
+     mySong.chorus();
+22
+  }
+23
+}
+24
+​
+Activity: 5.6.2 ActiveCode (Song1)
+5.6.1. Parameters
+You may have noticed more repetition in the song above. What about the lines of each verse? Notice that every word is repeated except the last ones that include a number and a rhyme such as one/thumb and two/shoe.
+System.out.println("This old man, he played one.");
+System.out.println("He played knick knack on my thumb.");
+...
+System.out.println("This old man, he played two.");
+System.out.println("He played knick knack on my shoe.");
+We can make methods even more powerful and more abstract by giving them parameters for data that they need to do their job. We can make a method called verse that takes the number and the rhyme to print out any verse!
+public void verse(String number, String rhyme)
+{
+   System.out.println("This old man, he played " + number);
+   System.out.println("He played knick knack on my " + rhyme);
+}
+ Coding Exercise
+Run the following code to see the song This Old Man print out using the verse and chorus methods. You can also see this code run in the Java visualizer by clicking on the Show Code Lens button below. Can you add verse three with the rhyme “knee”? Can you add verse four with the rhyme “door”? How many verses do you know?
+1
+public class Song
+2
+{
+3
+​
+4
+  /** Verse - prints out a verse of the song
+5
+   * @param number - a String like "one", "two", etc.
+6
+   * @param rhyme - a String like "thumb", "shoe", etc.
+7
+   */
+8
+   public void verse(String number, String rhyme)
+9
+   {
+10
+     System.out.println("This old man, he played " + number);
+11
+     System.out.println("He played knick knack on my " + rhyme);
+12
+   }
+13
+​
+14
+  // The chorus method
+15
+  public void chorus()
+16
+  {
+17
+     System.out.println("With a knick knack paddy whack, give a dog a bone.");
+18
+     System.out.println("This old man came rolling home.");
+19
+  }
+20
+​
+21
+  public static void main(String args[])
+22
+  {
+23
+      Song mySong = new Song();
+24
+      mySong.verse("one", "thumb");
+   mySong.chorus();
+        mySong.rhyme("two", "shoe");
+		     mySong.chorus();
+			      mySong.rhyme("three", "knee");
+Activity: 5.6.1.1 ActiveCode (Song2)
+When you create your own method, the variables you define for it in the method header are called formal parameters. When you call the method to do its job, you give or pass in arguments or actual parameters to it that are then saved in these local parameter variables.
+When a method is called, the right method definition is found by checking the method signature or header at the top of the method definition to match the method name, the number of arguments, the data types for the arguments and the return type.
+Here’s what that looks like with the 2 method calls above. Notice how the parameter variables get new values with every method call.
+
+Figure 1: Matching Arguments to Parameters
+Java uses Call by Value when it passes arguments to methods. This means that a copy of the value in the argument is saved in the parameter variable. If the parameter variable changes its value inside the method, the original value outside the method is not changed.
+If you pass in an argument that holds a reference to an object, like a String or Person or Turtle object, a copy of this reference is passed in and saved in the parameter variable. The formal parameter and the actual parameter (argument) are then aliases, both refering to the same object. Java was designed this way to avoid copying large objects from method to method. Remember when we discussed reference aliases with turtle objects who are set equal to one another.
+
+Figure 2: Turtle Reference Equality
+(Advanced topics warning): Although String objects are not mutable, the classes that you create will have mutable objects. If the reference parameter is for a mutable object, the method could change the actual object. However, it is good programming practice to not modify mutable objects that are passed as parameters unless required in the specification. Methods can even access the private data and methods of a parameter that is a reference to an object if the parameter is the same type as the method’s enclosing class. Note that Strings are immutable objects, so they cannot be changed by the method; only a new changed copy of them can be made.
+Methods can also return values of any type back to the calling method. The calling method should do something with this return value, like printing it out or saving it in a variable. Try the problems below to practice with a String method that takes a parameter and returns a boolean value.
+ Coding Exercise
+Run the following program which contains a method called findLetter that takes a letter and a text as parameters and uses a loop to see if that letter is in the text and returns true if it is, false otherwise. Set the variables letter and message to new values in the main method and run it again to try finding a different letter. Then, change the code of the findLetter method to return how many times it finds letter in text, using a new variable called count. How would the return type change?
+1
+public class StringFind
+2
+{
+3
+  /** findLetter looks for a letter in a String
+4
+   * @param String letter to look for
+5
+   * @param String text to look in
+6
+   * @return boolean true if letter is in text
+7
+   * After running the code, change this method to return
+8
+   * an int count of how many times letter is in the text.
+9
+   */
+10
+   public int findLetter(String letter, String text)
+11
+   {
+12
+       boolean flag = false;
+int counter = 0;
+13
+       for(int i=0; i < text.length(); i++)
+14
+       {
+15
+           if (text.substring(i, i+1).equalsIgnoreCase(letter))
+16
+               {
+17
+              counter++;
+18
+               }
+19
+       }
+20
+       return counter;
+21
+    }
+22
+​
+23
+    public static void main(String args[])
+24
+    {
+Activity: 5.6.1.2 ActiveCode (StringFind)
+5.6.2.  Programming Challenge : Song with Parameters
+Here’s another song, The Ants Go Marching, that is very similar to the This Old Man song in its repetitive structure.
+ The ants go marching one by one, hurrah, hurrah
+ The ants go marching one by one, hurrah, hurrah
+ The ants go marching one by one
+ The little one stops to suck a thumb
+ And they all go marching down to the ground
+ To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+
+ The ants go marching two by two, hurrah, hurrah
+ The ants go marching two by two, hurrah, hurrah
+ The ants go marching two by two
+ The little one stops to tie a shoe
+ And they all go marching down to the ground
+ To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+
+ The ants go marching three by three, hurrah, hurrah
+ The ants go marching three by three, hurrah, hurrah
+ The ants go marching three by three
+ The little one stops to climb a tree
+ And they all go marching down to the ground
+ To get out of the rain, BOOM! BOOM! BOOM! BOOM!
+ 
+1. Print out the The Ants Go Marching song and circle the repeated parts of the song.
+2. In the active code window below, create a method or methods that takes parameters to print out a verse. The method(s) should be abstract enough to work for all 3 verses. Use good commenting for your methods that describe the @param. For the autograder, make sure you create a method called verse that takes 2 parameters.
+3. In the main method, create an object of the class and call the method(s) you created in the last step to print out 3 verses of the song. Can you add more verses?
+Create method(s) with parameters to print out verses of the song The Ants Go Marching. https://youtu.be/QPwEZ8Vv2YQ/The+Ants+Go+Marching
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+public class Song
+2
+{
+3
+   // Create at least 1 method called verse that takes 2 parameters
+4
+   // that can be used to print out the verses of the song The Ants Go Marching
+public void verse(String rhyme, String number) {
+System.out.println(" The ants go marching "+number+" by "+number+", hurrah, hurrah");
+System.out.println(" The ants go marching "+number+" by "+number+", hurrah, hurrah");
+System.out.println(" The ants go marching "+number+" by "+number+", hurrah, hurrah");
+System.out.println("The little one stops to "+rhyme);
+System.out.println("And they all go marching down to the ground");
+System.out.println("To get out of the rain, BOOM! BOOM! BOOM! BOOM!");
+System.out.println();
+}
+
+5
+​
+6
+​
+7
+   public static void main(String args[])
+8
+   {
+9
+       // Create a Song object and call its method(s) to print out
+10
+       // the verses of The Ants Go Marching
+11
+       // Th
+ere should be atleast 1 method called verse that takes 2 arguments.
+12
+song mySong = new song();
+mySong.verse("suck a thumb", "one");
+mySong.verse"tye a shoe", "two");
+mySong.verse("climb a tree", "three");
+mySong.verse("go to the store", "four");
+mySong.verse("eat some chives", "five");
+
+13
+​
+14
+  }
+15
+}
+16
+​
+Activity: 5.6.2.1 ActiveCode (challenge-5-6-song)
+5.6.3. Summary
+• Procedural Abstraction (creating methods) reduces the complexity and repetition of code. We can name a block of code as a method and call it whenever we need it, abstracting away the details of how it works.
+• A programmer breaks down a large problem into smaller subproblems by creating methods to solve each individual subproblem.
+• To write methods, write a method definition with a method signature like “public void chorus()” and a method body in {} and method calls using an object.the method name and arguments whenever you need it to do its job.
+• To call an object’s method, you must use the object name and the dot (.) operator followed by the method name, for example object.method();
+• When you call a method, you can give or pass in arguments or actual parameters to it inside the parentheses object.method(arguments). The arguments are saved in local formal parameter variables that are declared in the method header, for example: public void method(type param1, type param2) { … }.
+• Values provided in the arguments in a method call need to correspond to the order and type of the parameters in the method signature.
+• When an actual parameter is a primitive value, the formal parameter is initialized with a copy of that value. Changes to the formal parameter have no effect on the corresponding actual parameter.
+• When an actual parameter is a reference to an object, the formal parameter is initialized with a copy of that reference, not a copy of the object. The formal parameter and the actual parameter are then aliases, both refering to the same object.
+• When an actual parameter is a reference to an object, the method or constructor could use this reference to alter the state of the original object. However, it is good programming practice to not modify mutable objects that are passed as parameters unless required in the specification.
+5.6.4. AP Practice
+5-6-6: Consider the following class, which uses the instance variable dollars to represent the money in a wallet in dollars.
+public class Wallet
+{
+    private double dollars;
+
+    public double putMoneyInWallet(int amount)
+    {
+        /* missing code */
+    }
+}
+The putMoneyInWallet method is intended to increase the dollars in the wallet by the parameter amount and then return the updated dollars in the wallet. Which of the following code segments should replace missing code so that the putMoneyInWallet method will work as intended?
+( )A. 
+amount += dollars;
+return dollars;
+
+( )B. 
+dollars = amount;
+return amount;
+
+(X)C. 
+dollars += amount;
+return dollars;
+
+( )D. 
+dollars = dollars + amount;
+return amount;
+
+( )E. 
+amount = dollars + amount;
+return dollars;
+
+Check MeCompare me
+Activity: 5.6.4.1 Multiple Choice (AP5-6-1)
+5-6-7: Consider the Liquid class below.
+public class Liquid
+{
+    private int currentTemp;
+    private int boilingPoint;
+
+    public Liquid(int ct, int bp)
+    {
+        currentTemp = ct;
+        boilingPoint = bp;
+    }
+
+    public boolean isBoiling(int amount)
+    {
+        /* missing code */
+    }
+}
+The isBoiling method is intended to return true if increasing the currentTemp by the parameter amount is greater than or equal to the boilingPoint, or otherwise return false. Which of the following code segments can replace missing code to ensure that the isBoiling method works as intended?
+I.   if (currentTemp + amount < boilingPoint)
+     {
+         return false;
+     }
+     else
+     {
+         return true;
+     }
+II.  if (amount > currentTemp)
+     {
+         return false;
+     }
+     else
+     {
+         return currentTemp;
+     }
+III. if (amount + currentTemp >= boilingPoint)
+     {
+         return true;
+     }
+     else
+     {
+         return false;
+     }
+( )A. I only
+
+
+( )B. II only
+
+
+( )C. III only
+
+
+(X)D. I and III only.
+
+
+( )E. I, II, III
+
+Check MeCompare me
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

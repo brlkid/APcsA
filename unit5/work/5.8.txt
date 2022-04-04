@@ -1,0 +1,279 @@
+5.8. Scope and Access
+The scope of a variable is defined as where a variable is accessible or can be used. The scope is determined by where you declare the variable when you write your programs. When you declare a variable, look for the closest enclosing curly brackets { } – this is its scope.
+Java has 3 levels of scope that correspond to different types of variables:
+• Class Level Scope for instance variables inside a class.
+• Method Level Scope for local variables (including parameter variables) inside a method.
+• Block Level Scope for loop variables and other local variables defined inside of blocks of code with { }.
+The image below shows these 3 levels of scope.
+
+Figure 1: Class, Method, and Block Level Scope
+ Check Your Understanding
+5-8-1: Click on all the variable declarations that are at Class Level Scope. 
+public class Name {
+
+x    private String first;
+x    public String last;
+
+    public Name(String theFirst, String theLast) {
+        String firstName = theFirst;
+        first = firstName;
+        last = theLast;
+     }
+}
+Activity: 5.8.1 Clickable (name_class_scope)
+5-8-2: Click on all the variable declarations that are at Method Level Scope. 
+public class Name {
+
+    private String first;
+    public String last;
+
+    public Name(String theFirst, String theLast) {
+x        String firstName = theFirst;
+        first = firstName;
+        last = theLast;
+     }
+}
+Check Me
+Activity: 5.8.2 Clickable (name_method_scope)
+Local variables are variables that are declared inside a method, usually at the top of the method. These variables can only be used within the method and do not exist outside of the method. Parameter variables are also considered local variables that only exist for that method. It’s good practice to declare any variables that are used by just one method as local variables in that method.
+Instance variables at class scope are shared by all the methods in the class and can be marked as public or private with respect to their access outside of the class. They have Class scope regardless of whether they are public or private.
+Another way to look at scope is that a variable’s scope is where it lives and exists. You cannot use the variable in code outside of its scope. The variable does not exist outside of its scope.
+ Coding Exercise
+Try the following code to see that you cannot access the variables outside of their scope levels in the toString() method. Explain to someone sitting next to you why you can’t access these. Try to fix the errors by either using variables that are in scope or moving the variable declarations so that the variables have larger scope.
+1
+public class Person
+2
+{
+3
+   private String name;
+4
+   private String email;
+5
+​
+6
+   public Person(String initName, String initEmail)
+7
+   {
+8
+      name = initName;
+9
+      email = initEmail;
+10
+   }
+11
+​
+12
+   public String toString()
+13
+   {
+14
+     for (int i=0; i < 5; i++) {
+15
+        int id = i;
+16
+     }
+17
+     // Can you access the blockScope variables i or id?
+18
+     System.out.println("i at the end of the loop is " + i);
+19
+     System.out.println("The last id is " + id);
+20
+​
+21
+     // Can toString() access parameter variables in Person()?
+22
+     return  name + ": " + email;
+23
+   }
+24
+​
+Activity: 5.8.3 ActiveCode (PersonScope)
+If there is a local variable with the same name as an instance variable, the variable name will refer to the local variable instead of the instance variable, as seen below. We’ll see in the next lesson, that we can distinguish between the local variable and the instance variable using the keyword this to refer to this object’s instance variables.
+In this example, the local variable is used instead of the instance variable of the same name. What will the code print out? Try it with the CodeLens button.
+1
+public class Person
+2
+{
+3
+   private String name;
+4
+   private String email;
+5
+​
+6
+   public Person(String initName, String initEmail)
+7
+   {
+8
+      name = initName;
+9
+      email = initEmail;
+10
+   }
+11
+​
+12
+   public String toString()
+13
+   {
+14
+     String name = "unknown";
+15
+     // The local variable name here will be used,
+16
+     //  not the instance variable name.
+17
+     return  name + ": " + email;
+18
+   }
+19
+​
+20
+   // main method for testing
+21
+   public static void main(String[] args)
+22
+   {
+23
+      // call the constructor to create a new person
+24
+      Person p1 = new Person("Sana", "sana@gmail.com");
+Activity: 5.8.4 ActiveCode (PersonLocalVar)
+5.8.1.  Programming Challenge : Debugging
+Debug the following program that has scope violations. You may need to add methods or use methods that are in the class Fraction appropriately. Then, add comments that label the variable declarations as class, method, or block scope.
+1
+public class TesterClass
+2
+{
+3
+   public static void main(String[] args)
+4
+   {
+5
+      Fraction f1 = new Fraction();
+6
+      Fraction f2 = new Fraction(1,2);
+7
+      System.out.println(f1);
+8
+      System.out.println(f2.numerator / f2.denominator);
+9
+   }
+10
+ }
+11
+​
+12
+/** Class Fraction */
+13
+class Fraction
+14
+{
+15
+   //  instance variables
+16
+   public int numerator;
+17
+   public int denominator;
+18
+​
+19
+   // constructor: set instance variables to default values
+20
+   public void Fraction()
+21
+   {
+22
+      int d = 1;
+23
+      numerator = d;
+24
+      denominator = d;
+}
+public void Fraction(int initNum, int initden) {
+numerator = initNum; 
+denominator = initDen; 
+Activity: 5.8.1.1 ActiveCode (challenge-5-8-Debug)
+5.8.2. Summary
+• Scope is defined as where a variable is accessible or can be used.
+• Local variables can be declared in the body of constructors and methods. These variables may only be used within the constructor or method and cannot be declared to be public or private.
+• When there is a local variable with the same name as an instance variable, the variable name will refer to the local variable instead of the instance variable.
+• Formal parameters and variables declared in a method or constructor can only be used within that method or constructor.
+5.8.3. AP Practice
+5-8-6: Consider the following class definitions. Which of the following best explains why the class will not compile?
+public class Party
+{
+    private int boxesOfFood;
+    private int numOfPeople;
+
+    public Party(int people, int foodBoxes)
+    {
+        numOfPeople = people;
+        boxesOfFood = foodBoxes;
+    }
+
+    public void orderMoreFood(int additionalFoodBoxes)
+    {
+        int updatedAmountOfFood = boxesOfFood + additionalFoodBoxes;
+        boxesOfFood = updatedAmountOfFood;
+    }
+
+    public void eatFoodBoxes(int eatenBoxes)
+    {
+        boxesOfFood = updatedAmountOfFood - eatenBoxes;
+    }
+}
+()A. The class is missing an accessor method.
+( )B. The instance variables boxesOfFood and numOfPeople should be designated public instead of private.
+( )C. The return type for the Party constructor is missing.
+(x)D. The variable updatedAmountOfFood is not defined in eatFoodBoxes method.
+( )E. The Party class is missing a constructor
+Check MeCompare me
+Activity: 5.8.3.1 Multiple Choice (AP5-8-1)
+5-8-7: Consider the following class definition.
+public class Movie
+{
+    private int currentPrice;
+    private int movieRating;
+
+    public Movie(int p, int r)
+    {
+        currentPrice = p;
+        movieRating = r;
+    }
+
+    public int getCurrentPrice()
+    {
+        int currentPrice = 16;
+        return currentPrice;
+    }
+
+    public void printPrice()
+    {
+        System.out.println(getCurrentPrice());
+    }
+}
+Which of the following reasons explains why the printPrice method is “broken” and only ever prints out a value of 16?
+( )A. The private variables currentPrice and movieRating are not properly initialized.
+
+
+( )B. The private variables currentPrice and movieRating should have been declared public.
+
+
+( )C. The printPrice method should have been declared as private.
+
+
+(x)D. currentPrice is declared as a local variable in the getCurrentPrice method and set to 16, and will be used instead of the instance variable currentPrice.
+
+
+( )E. The currentPrice instance variable does not have a value.
+
+Check MeCompare me
+
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

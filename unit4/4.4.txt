@@ -1,0 +1,175 @@
+4.4. Nested For Loops
+A nested loop has one loop inside of another. These are typically used for working with two dimensions such as printing stars in rows and columns as shown below. When a loop is nested inside another loop, the inner loop runs many times inside the outer loop. In each iteration of the outer loop, the inner loop will be re-started. The inner loop must finish all of its iterations before the outer loop can continue to its next iteration.
+
+Figure 1: Nested Loops
+ Coding Exercises
+What does the following code print out? Watch the code run in the Java visualizer by clicking the CodeLens button and then forward. Notice how the inner loop is started over for each row. Can you predict how many rows and columns of stars there will be?
+Can you change the code to print a rectangle with 10 rows and 8 columns of stars? You can also try replacing line 10 with this print statement to see the rows and columns: System.out.print(row + "-" + col + " ");
+Save & Run 
+3/15/2022, 7:05:16 AM - 2 of 2
+Show CodeLensShare Code
+1
+public class NestedLoops
+2
+{
+3
+​
+4
+   public static void main(String[] args)
+5
+   {
+6
+       for (int row = 1; row <= 10; row++)
+7
+       {
+8
+           for (int col = 1; col <= 8; col++)
+9
+           {
+10
+               System.out.print("*");
+11
+           }
+12
+           System.out.println();
+13
+       }
+14
+   }
+15
+}
+16
+​
+********
+********
+********
+********
+********
+********
+********
+********
+********
+********
+Activity: 4.4.1 ActiveCode (lcfcnl1)
+ Check your understanding
+4-4-2: What does the following code print?
+for (int i = 1; i < 7; i++)
+{
+    for (int y = 1; y <= 5; y++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+( )A. A rectangle of 7 rows with 5 stars per row.
+( )B. A rectangle of 7 rows with 4 stars per row.
+(X)C. A rectangle of 6 rows with 5 stars per row.
+( )D. A rectangle of 6 rows with 4 stars per row.
+Check MeCompare me
+Activity: 4.4.2 Multiple Choice (nested1)
+4-4-3: What does the following code print?
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 3; j >= 1; j--)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+(X)A. A rectangle of 4 rows with 3 star per row.
+( )B. A rectangle of 5 rows with 3 stars per row.
+( )C. A rectangle of 4 rows with 1 star per row.
+( )D. The loops have errors.
+Check MeCompare me
+✔️ Yes, the outer loop runs from 0 up to 5 but not including 5 so there are 5 rows and the inner loop runs from 3 down to 1 so 3 times.
+Activity: 4.4.3 Multiple Choice (nested2)
+The main method in the following class should print 10 rows with 5 <code>*</code> in each row. But, the blocks have been mixed up and include one extra block that isn’t needed in the solution. Drag the needed blocks from the left and put them in the correct order on the right. Click the Check button to check your solution.
+Drag from here
+2
+for (int y = 0; y < 5; y++){
+not needed 
+for (int y = 0; y <= 5; y++){
+2 
+}
+1 
+public class Test1{public static void main(String[] args){
+5 
+}
+7
+}}
+3 
+for (int x = 0; x < 10; x++){
+4
+System.out.print("*");
+6 
+System.out.println();
+or{
+Drop blocks here
+CheckResetHelp me
+Parsons (ch6ex6muc)
+4.4.1. Nested Loops with Turtles
+Try nested loops with turtles to create a snowflake design!
+ Coding Exercise
+The turtle below is trying to draw a square many times to create a snowflake pattern. Can you change the outer loop so that the pattern completes all the way around? Try different ending values for the counter i to find the smallest number that works between 5 and 15.
+If the code below does not work in your browser, you can copy the code into this repl.it link (refresh page after forking and if it gets stuck) or download the files here to use in your own IDE.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+import java.util.*;
+2
+import java.awt.*;
+3
+​
+4
+public class TurtleDrawSnowflake
+5
+{
+6
+  public static void main(String[] args)
+7
+  {
+8
+      World world = new World(300,300);
+9
+      Turtle yertle = new Turtle(world);
+10
+      yertle.setColor(Color.blue);
+11
+​
+12
+       // Outer loop will do inner loop to draw a square,
+13
+       // and then turn a little each time
+14
+       // How many times should the outer loop run to complete the pattern? Try some numbers between 5 and 15.
+15
+      for (int i = 1; i <= 5; i++) {
+16
+​
+17
+         // inner loop draws a square
+18
+         for(int sides = 1; sides <= 4; sides++) {
+19
+             yertle.forward();
+20
+             yertle.turn(90);
+21
+         }
+22
+         // turn a little before drawing square again
+23
+         yertle.turn(30);
+24
+      }
+Activity: 4.4.1 ActiveCode (challenge4-4-Turtle-Nested-Loop-Snowflakes)
+4.4.3. Summary¶
+• Nested iteration statements are iteration statements that appear in the body of another iteration statement.
+• When a loop is nested inside another loop, the inner loop must complete all its iterations before the outer loop can continue.
+
+
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157
