@@ -9,4 +9,5 @@ public class beach {
      System.out.println("Go to the beach");
  }
 }
+
 }
