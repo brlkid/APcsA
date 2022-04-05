@@ -1,128 +1,125 @@
 public class Main 
 {
-Â  public static void main(String []args)
-Â  {
+  public static void main(String []args)
+  {
 
-Â  Â  //Creates 4 new instances of the Student object
+    //Creates 4 new instances of the Student object
 
-Â  Â  Student student1 = new Student();
-Â  Â  Student student2 = new Student();
+    Student student1 = new Student();
+    Student student2 = new Student();
 
-Â  Â  Student student3 = new Student("John", "Geometry", 93);
-Â  Â  Student student4 = new Student("Abby", "Art II", 78);
+    Student student3 = new Student("John", "Geometry", 93);
+    Student student4 = new Student("Abby", "Art II", 78);
 
-Â  Â  System.out.println();
-Â  Â  
-Â  Â  //Prints all the information for student 1
-Â  Â  
-Â  Â  System.out.println("Student Name: " + student1.getName());
-Â  Â  System.out.println("Student Course: " + student1.getCourse());
-Â  Â  System.out.println("Student Grade: " + student1.getGrade());
-Â  Â  System.out.println("Number Of Scores/Total Points: " + student1.getNumScores() + "/" + student1.getPoints());
+    System.out.println();
+    
+    //Prints all the information for student 1
+    
+    System.out.println("Student Name: " + student1.getName());
+    System.out.println("Student Course: " + student1.getCourse());
+    System.out.println("Student Grade: " + student1.getGrade());
+    System.out.println("Number Of Scores/Total Points: " + student1.getNumScores() + "/" + student1.getPoints());
 
-Â  Â  System.out.println();
+    System.out.println();
 
-Â  Â  //Prints all the information for student 2
+    //Prints all the information for student 2
 
-Â  Â  System.out.println("Student Name: " + student2.getName());
-Â  Â  System.out.println("Student Course: " + student2.getCourse());
-Â  Â  System.out.println("Student Grade: " + student2.getGrade());
-Â  Â  System.out.println("Number Of Scores/Total Points: " + student2.getNumScores() + "/" + student2.getPoints());
+    System.out.println("Student Name: " + student2.getName());
+    System.out.println("Student Course: " + student2.getCourse());
+    System.out.println("Student Grade: " + student2.getGrade());
+    System.out.println("Number Of Scores/Total Points: " + student2.getNumScores() + "/" + student2.getPoints());
 
-Â  Â  System.out.println();
+    System.out.println();
 
-Â  Â  //Prints all the information for student 3
+    //Prints all the information for student 3
 
-Â  Â  System.out.println("Student Name: " + student3.getName());
-Â  Â  System.out.println("Student Course: " + student3.getCourse());
-Â  Â  System.out.println("Student Grade: " + student3.getGrade());
-Â  Â  System.out.println("Number Of Scores/Total Points: " + student3.getNumScores() + "/" + student3.getPoints());
+    System.out.println("Student Name: " + student3.getName());
+    System.out.println("Student Course: " + student3.getCourse());
+    System.out.println("Student Grade: " + student3.getGrade());
+    System.out.println("Number Of Scores/Total Points: " + student3.getNumScores() + "/" + student3.getPoints());
 
-Â  System.out.println();
+  System.out.println();
 
-Â  Â  //Prints all the information for student 4
-Â  Â  
-Â  Â  System.out.println("Student Name: " + student4.getName());
-Â  Â  System.out.println("Student Course: " + student4.getCourse());
-Â  Â  System.out.println("Student Grade: " + student4.getGrade());
-Â  Â  System.out.println("Number Of Scores/Total Points: " + student4.getNumScores() + "/" + student4.getPoints());
+    //Prints all the information for student 4
+    
+    System.out.println("Student Name: " + student4.getName());
+    System.out.println("Student Course: " + student4.getCourse());
+    System.out.println("Student Grade: " + student4.getGrade());
+    System.out.println("Number Of Scores/Total Points: " + student4.getNumScores() + "/" + student4.getPoints());
 
-Â  Â  //Gives all of the students scores according to Â  Â  Â the rules given
+    //Gives all of the students scores according to      the rules given
 
-Â  Â  student1.addScore(47);
-Â  Â  student1.addScore(96);
+    student1.addScore(47);
+    student1.addScore(96);
 
-Â  Â  student2.addScore(92);
-Â  Â  student2.addScore(93);
-Â  Â  student2.addScore((int) Math.random()*42 + 65);
-Â  Â  student2.addScore((int) Math.random()*42 + 85);
+    student2.addScore(92);
+    student2.addScore(93);
+    student2.addScore((int) Math.random()*42 + 65);
+    student2.addScore((int) Math.random()*42 + 85);
 
 
-Â  Â  student3.addScore(99);
-Â  Â  student3.addScore(100);
-Â  Â  student3.addScore(88);
-Â  Â  student3.addScore((int) Math.random()*71 + 55);
-Â  Â  student3.addScore((int) Math.random()*75 + 40);
-Â  Â  student3.addScore((int) Math.random()*70 + 40);
+    student3.addScore(99);
+    student3.addScore(100);
+    student3.addScore(88);
+    student3.addScore((int) Math.random()*71 + 55);
+    student3.addScore((int) Math.random()*75 + 40);
+    student3.addScore((int) Math.random()*70 + 40);
 
-Â  Â  student4.addScore(42);
-Â  Â  student4.addScore(31);
-Â  Â  student4.addScore(55);
-Â  Â  student4.addScore((int) Math.random()*100+100);
-Â  Â  student4.addScore((int) Math.random()*100+100);
+    student4.addScore(42);
+    student4.addScore(31);
+    student4.addScore(55);
+    student4.addScore((int) Math.random()*100+100);
+    student4.addScore((int) Math.random()*100+100);
     //Me and Jacob came up with a genius plan to help the kids! 
-Â  Â  student4.addScore((int) Math.random()*100);
+    student4.addScore((int) Math.random()*100);
 
-Â  Â  /*
-Â  Â  //Assigns values to students 1 and 2's attributes because they were previously default 
+    //Assigns values to students 1 and 2's attributes because they were previously default 
 
-Â  Â  student1.setName("Dylan");
-Â  Â  student1.setGrade(68);
-Â  Â  student1.setCourse("Science Research");
+    student1.setName("Dylan");
+    student1.setGrade(68);
+    student1.setCourse("Science Research");
 
-Â  Â  student2.setName("Jennifer");
-Â  Â  student2.setGrade(14);
-Â  Â  student2.setCourse("Algebra II");
+    student2.setName("Jennifer");
+    student2.setGrade(14);
+    student2.setCourse("Algebra II");
 
-Â  Â  //Chops off the beginning of the string 
-Â  Â  
-Â  Â  String student3Course = student3.getCourse();
-Â  Â  student3Course = student3Course.substring(6, student3Course.length());
+    //Chops off the beginning of the string 
+    
+    String student3Course = student3.getCourse();
+    student3Course = student3Course.substring(6, student3Course.length());
 
-Â  Â  String student4Course = student4.getCourse();
-Â  Â  student4Course = student4Course.substring(6, student4Course.length());
+    String student4Course = student4.getCourse();
+    student4Course = student4Course.substring(6, student4Course.length());
 
-Â  Â  System.out.println("---------------------");
+    System.out.println("---------------------");
 
-Â  Â  //Prints out all the newly changed information
+    //Prints out all the newly changed information
 
-Â  Â  System.out.println("Student Name: " + student1.getName());
-Â  Â  System.out.println("Student Course: " + student1.getCourse().substring(6,student1.getCourse().length()));
-Â  Â  System.out.println("Student Grade: " + student1.getGrade());
-Â  Â  System.out.println("Student has " Â + student1.getPoints() + " from " + student1.getNumScores() + " score for a GPA of " + (student1.getPoints() / student1.getNumScores()));
+    System.out.println("Student Name: " + student1.getName());
+    System.out.println("Student Course: " + student1.getCourse().substring(6,student1.getCourse().length()));
+    System.out.println("Student Grade: " + student1.getGrade());
+    System.out.println("Student has "  + student1.getPoints() + " from " + student1.getNumScores() + " score for a GPA of " + (student1.getPoints() / student1.getNumScores()));
 
-Â  Â  System.out.println();
+    System.out.println();
 
-Â  Â  System.out.println("Student Name: " + student2.getName());
-Â  Â  System.out.println("Student Course: " + student2.getCourse().substring(6,student2.getCourse().length()));
-Â  Â  System.out.println("Student Grade: " + student2.getGrade());
-Â  Â  System.out.println("Student has " Â + student2.getPoints() + " from " + student2.getNumScores() + " scores for a GPA of " + (student2.getPoints() / student2.getNumScores()));
+    System.out.println("Student Name: " + student2.getName());
+    System.out.println("Student Course: " + student2.getCourse().substring(6,student2.getCourse().length()));
+    System.out.println("Student Grade: " + student2.getGrade());
+    System.out.println("Student has "  + student2.getPoints() + " from " + student2.getNumScores() + " scores for a GPA of " + (student2.getPoints() / student2.getNumScores()));
 
-Â  Â  System.out.println();
+    System.out.println();
 
-Â  Â  System.out.println("Student Name: " + student3.getName());
-Â  Â  System.out.println("Student Course: " + student3.getCourse().substring(6,student3.getCourse().length()));
-Â  Â  System.out.println("Student Grade: " + student3.getGrade());
-Â  Â  System.out.println("Student has " Â + student3.getPoints() + " from " + student3.getNumScores() + " scores for a GPA of " + (student3.getPoints() / student3.getNumScores()));
+    System.out.println("Student Name: " + student3.getName());
+    System.out.println("Student Course: " + student3.getCourse().substring(6,student3.getCourse().length()));
+    System.out.println("Student Grade: " + student3.getGrade());
+    System.out.println("Student has "  + student3.getPoints() + " from " + student3.getNumScores() + " scores for a GPA of " + (student3.getPoints() / student3.getNumScores()));
 
-Â  Â  System.out.println();
+    System.out.println();
 
-Â  Â  System.out.println("Student Name: " + student4.getName());
-Â  Â  System.out.println("Student Course: " + student4.getCourse().substring(6,student4.getCourse().length()));
-Â  Â  System.out.println("Student Grade: " + student4.getGrade());
-Â  Â  System.out.println("Student has " Â + student4.getPoints() + " from " + student4.getNumScores() + " scores for a GPA of " + (student4.getPoints() / student4.getNumScores()));
-
-Â  Â  
-Â  Â  
-Â  }
+    System.out.println("Student Name: " + student4.getName());
+    System.out.println("Student Course: " + student4.getCourse().substring(6,student4.getCourse().length()));
+    System.out.println("Student Grade: " + student4.getGrade());
+    System.out.println("Student has "  + student4.getPoints() + " from " + student4.getNumScores() + " scores for a GPA of " + (student4.getPoints() / student4.getNumScores()));
+    
+  }
 }
