@@ -9,7 +9,7 @@
  * 		Will transform statements as well as react to keywords
  *</li></ul>
  * This version uses an array to hold the default responses.
- */
+*/
 public class Magpie5
 {
 	/**

@@ -1,0 +1,96 @@
+9.1.1. Inheritance (Day 1)
+One of the really useful features of Object-Oriented programming is inheritance. You may have heard of someone coming into an inheritance, which often means they were left something from a relative who died. Or, you might hear someone say that they have inherited musical ability from a parent. In Java all classes can inherit attributes (instance variables) and behaviors (methods) from another class. The class being inherited from is called the parent class or superclass. The class that is inheriting is called the child class or subclass.
+When one class inherits from another, we can say that it is the same kind of thing as the parent class (the class it inherits from). For example, a car is a kind of vehicle. This is sometimes called the is-a relationship, but more accurately it’s a is-a kind of relationship. A motorcycle is another kind of vehicle. All vehicles have a make, model, and year that they were created. All vehicles can go forward, backward, turn left and turn right.
+
+Figure 1: A UML Class Diagram Showing Inheritance
+A UML (Unified Modeling Language) class diagram shows classes and the relationships between the classes as seen in Figure 1. An open triangle points to the parent class. The parent class for Car and Motorcycle is Vehicle. The Vehicle class has two child classes or subclasses: Car and Motorcycle.
+9.1.2. Subclass extends Superclass
+To make a subclass inherit from a superclass, use the Java keyword extends with the superclass name when creating a new subclass as shown below.
+public class Car extends Vehicle
+public class Motorcycle extends Vehicle
+Note
+While a person can have two parents, a Java class can only inherit from one parent class. If you leave off the extends keyword when you declare a class then the class will inherit from the Object class that is already defined in Java.
+9.1.3. Why Use Inheritance?
+Inheritance allows you to reuse data and behavior from the parent class. If you notice that several classes share the same data and/or behavior, you can pull that out into a parent class. This is called generalization. For example, Customers and Employees are both people so it makes sense use the general Person class as seen below.
+Inheritance is also useful for specialization which is when you want most of the behavior of a parent class, but want to do at least one thing differently and/or add more data. The example below can also be seen as specialization. An employee is a person but also has a unique id. A customer is a person, but also has a credit card.
+
+Figure 2: A UML Class Diagram Showing Inheritance
+ Check your understanding
+9-1-1: If you don’t specify the parent class in a class declaration which of the following is true?
+( )A. It doesn't have a parent class.
+(x)B. It inherits from the Object class.
+( )C. It inherits from the Default class.
+( )D. It inherits from the Parent class.
+Check MeCompare me
+✔️ If no parent class is specified using the extends keyword, the parent class will be Object.
+Activity: 9.1.3.1 Multiple Choice (qoo10-1-1)
+9-1-2: If the class Vehicle has the instance fields make and model and the class Car inherits from the class Vehicle, will a car object have a make and model?
+(x)A. Yes
+( )B. No
+Check MeCompare me
+✔️ Yes, a child class inherits all the parent class object field and methods.
+Activity: 9.1.3.2 Multiple Choice (qoo10-1-2)
+9-1-3: If I had a class ParkingGarage should it inherit from the class Vehicle?
+( )A. Yes
+(x)B. No
+Check MeCompare me
+✔️ No, a parking garage is not a kind of vehicle. Instead it has vehicles in it which implies that the ParkingGarage class would have a field that tracks the vehicles in it.
+Activity: 9.1.3.3 Multiple Choice (qoo10-1-3)
+9-1-4: In Java how many parents can a class have?
+( )A. 0
+(x)B. 1
+( )C. 2
+( )D. infinite
+Check MeCompare me
+✔️ All classes in Java have one and only one parent class.
+Activity: 9.1.3.4 Multiple Choice (qoo10-1-4)
+ Coding Exercise
+The Student class can also inherit from the class Person just like Employee and Customer because a Student is a type of Person.
+What do you need to add to the Student class declaration below to make it inherit from type Person? When you fix the code, the instanceof operator will return true that Student s is an instance of both the Student and the Person class. What other private instance variables could you add to Person and Student? In which class would you put an address attribute? Where would you put gpa?
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+class Person
+2
+{
+3
+     private String name;
+     private String address;
+4
+}
+5
+​
+6
+// How can we make the Student class inherit from class Person?
+7
+public class Student extends Person 
+8
+{
+9
+     private int id;
+     private double gpa;
+10
+​
+11
+     public static void main(String[] args)
+12
+     {
+13
+        Student s = new Student();
+14
+        System.out.println(s instanceof Student);
+15
+        System.out.println(s instanceof Person);
+16
+     }
+17
+ }
+18
+ 
+Activity: 9.1.3.5 ActiveCode (StudentInheritance)
+
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

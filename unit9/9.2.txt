@@ -1,0 +1,198 @@
+9.2. Inheritance and Constructors
+Subclasses inherit public methods from the superclass that they extend, but they cannot access the private instance variables of the superclass directly and must use the public accessor and mutator methods. And subclasses do not inherit constructors from the superclass.
+So, how do you initialize the superclass’ private variables if you don’t have direct access to them in the subclass? In Java, the superclass constructor can be called from the first line of a subclass constructor by using the special keyword super() and passing appropriate parameters, for example super(); or super(theName); as in the code below. The actual parameters given to super() are used to initialize the inherited instance variables, for example the name instance variable in the Person superclass.
+public class Employee extends Person
+{
+    public Employee()
+    {
+        super(); // calls the Person() constructor
+    }
+    public Employee(String theName)
+    {
+        super(theName); // calls Person(theName) constructor
+    }
+}
+ Coding Exercise
+The super(theName) in the Employee constructor will call the constructor that takes a String object in the Person class to set the name.
+Try creating another Employee object in the main method that passes in your name and then use the get methods to print it out. Which class constructor sets the name? Which class constructor sets the id?
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+class Person
+2
+{
+3
+   private String name;
+4
+​
+5
+   public Person(String theName)
+6
+   {
+7
+      this.name = theName;
+8
+   }
+9
+​
+10
+   public String getName()
+11
+   {
+12
+      return name;
+13
+   }
+14
+​
+15
+   public boolean setName(String theNewName)
+16
+   {
+17
+      if (theNewName != null)
+18
+      {
+19
+         this.name = theNewName;
+20
+         return true;
+21
+      }
+22
+      return false;
+23
+   }
+24
+}
+Activity: 9.2.1 ActiveCode (InitPrivateInherited)
+If a class has no constructor in Java, the compiler will add a no-argument constructor. A no-argument constructor is one that doesn’t have any parameters, for example public Person().
+If a subclass has no call to a superclass constructor using super as the first line in a subclass constructor then the compiler will automatically add a super() call as the first line in a constructor. So, be sure to provide no-argument constructors in parent classes or be sure to use an explicit call to super() as the first line in the constructors of subclasses.
+Regardless of whether the superclass constructor is called implicitly or explicitly, the process of calling superclass constructors continues until the Object constructor is called since every class inherits from the Object class.
+ Check your understanding
+9-2-2: Given the class definitions of MPoint and NamedPoint below, which of the constructors that follow (labeled I, II, and III) would be valid in the NamedPoint class?
+class MPoint
+{
+   private int myX; // coordinates
+   private int myY;
+
+   public MPoint( )
+   {
+      myX = 0;
+      myY = 0;
+   }
+
+   public MPoint(int a, int b)
+   {
+      myX = a;
+      myY = b;
+   }
+
+   // ... other methods not shown
+
+}
+
+public class NamedPoint extends MPoint
+{
+   private String myName;
+   // constructors go here
+   // ... other methods not shown
+}
+
+//  Proposed constructors for this class:
+I.   public NamedPoint()
+     {
+        myName = "";
+     }
+II.  public NamedPoint(int d1, int d2, String name)
+     {
+        myX = d1;
+        myY = d2;
+        myName = name;
+     }
+III. public NamedPoint(int d1, int d2, String name)
+     {
+        super(d1, d2);
+        myName = name;
+     }
+( )A. I only
+( )B. I and III
+( )C. II only
+( )D. III only
+Check MeCompare me
+Activity: 9.2.2 Multiple Choice (qoo_9)
+You can step through this code using the Java Visualizer by clicking the following link Named Point.
+9.2.1.  Programming Challenge : Square is-a Rectangle
+In this challenge, you are giving a class called Rectangle that has two instance variables, length and width, and two constructors that initialize them, and a method called draw() that uses nested loops to draw a length x width rectangle of stars. Try it out below.
+You will write a new class called Square that inherits from Rectangle. Is a square a rectangle? Yes! A square is a rectangle where the length and width are equal. Square will inherit length, width, and the draw method. You will write square constructors that will call the Rectangle constructors.
+1. Make the class Square below inherit from Rectangle
+2. Add a Square no-argument constructor that calls Rectangle’s constructor using super().
+3. Add a Square constructor with 1 argument for a side that calls Rectangle’s constructor with 2 arguments using super.
+4. Uncomment the objects in the main method to test drawing the squares.
+5. Add an area() method to Rectangle that computes the area of the rectangle. Does it work for squares too? Test it.
+6. Add another subclass called LongRectangle which inherits from Rectangle but has the additional condition that the length is always 2 x the width. Write constructors for it and test it out.
+Create a Square class that inherits from Rectangle.
+Save & RunLoad HistoryShow CodeLensShare Code
+1
+class Rectangle
+2
+{
+3
+    private int length;
+4
+    private int width;
+5
+​
+6
+    public Rectangle()
+7
+    {
+8
+       length = 1;
+9
+       width = 1;
+10
+    }
+11
+​
+12
+    public Rectangle(int l, int w)
+13
+    {
+14
+       length = l;
+15
+       width = w;
+16
+    }
+17
+​
+18
+    public void draw()
+19
+    {
+20
+      for(int i=0; i < length; i++)
+21
+      {
+22
+         for(int j=0; j < width; j++)
+23
+             System.out.print("* ");
+24
+          System.out.println();
+Activity: 9.2.1.1 ActiveCode (challenge-9-2-Square-Rectangle)
+For a more complex example of drawing shapes, try running this repl.it Java Swing code (or download the files here by clicking on Download on the top right and use the files in your own Java IDE). When the yellow panel comes up, click on either the Rectangle or the Oval button and then click and drag somewhere on the yellow panel to draw that shape. Take a look at the Rectangle.java and Oval.java files to see how they inherit from the Shape class in Shape.java. Java Swing graphical programming is not covered on the AP CS A exam, but it is a lot of fun!
+9.2.2. Summary
+• Subclasses do not have access to the private instance variables in a superclass that they extend.
+• Constructors are not inherited.
+• The superclass constructor can be called from the first line of a subclass constructor by using the keyword super and passing appropriate parameters to set the private instance variables of the superclass.
+• The actual parameters passed in the call to the superclass constructor provide values that the constructor can use to initialize the object’s instance variables.
+• When a subclass’s constructor does not explicitly call a superclass’s constructor using super, Java inserts a call to the superclass’s no-argument constructor.
+• Regardless of whether the superclass constructor is called implicitly or explicitly, the process of calling superclass constructors continues until the Object constructor is called. At this point, all of the constructors within the hierarchy execute beginning with the Object constructor.
+
+
+Joel Perry, USAF Retired
+Computer Science Teacher
+Westminster High School
+1225 Washington Road
+Westminster, MD 21157

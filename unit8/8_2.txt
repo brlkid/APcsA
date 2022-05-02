@@ -1,0 +1,144 @@
+8.2.1. Nested Loops for 2D Arrays (Day 1)
+In this lesson, you will learn how to use nested loops to traverse a 2D Array.
+
+8.2.2. Getting the Number of Rows and Columns
+Arrays know their length (how many elements they can store). The length is a public read-only field so you can use dot-notation to access the field (arrayName.length). The length of the outer array is the number of rows and the length of one of the inner arrays is the number of columns.
+
+ticketInfo.length // returns the number of rows
+ticketInfo[0].length // returns the number of columns
+Note
+
+Note that length is a field and not a method, so you don’t add parentheses after length. However, if you use parentheses after length during the exam, you won’t lose any points. Since for the AP CS A exam all two-dimensional arrays are rectangular arrays (arrays that have the same number of columns in each row) you can just use the length of the first inner array as the number of columns as shown by ticketInfo[0].length.
+
+exercise Check your understanding
+
+8-2-1: How many rows does a have if it is created as follows int[][] a = { {2, 4, 6, 8}, {1, 2, 3, 4}};?
+
+xA. 2
+B. 4
+C. 8
+
+Activity: 8.2.2.1 Multiple Choice (qa2ldb_2)
+
+8-2-2: Which of the following would I use to get the value in the third row and second column from a 2D array called nums?
+
+A. nums[3][2]
+B. nums[2][3]
+xC. nums[2][1]
+D. nums[1][2]
+
+Activity: 8.2.2.2 Multiple Choice (qa2ldb_3)
+
+8.2.3. Looping Through a 2D Array
+Since you can find out the number of rows and columns in a 2D array you can use a nested for loop (one loop inside of another loop) to loop/traverse through all of the elements of a 2D array.
+
+int[][] array = { {1,2,3},{4,5,6}};
+for (int row = 0; row < array.length; row++)
+{
+    for (int col = 0; col < array[0].length; col++)
+    {
+         System.out.println( array[row][col] );
+    }
+ }
+coding exercise Coding Exercise
+
+What does the following code do? Add another row of numbers to the matrix. Will the loops traverse this row too? Use the CodeLens button to trace through the code. Note that an array can be passed in as an argument to a method.
+
+public class Test1
+{
+​
+   public static double getAverage(int[][] a)
+   {
+      double total = 0;
+      int value = 0;
+
+      for (int row = 0; row < a.length; row++)
+      {
+         for (int col = 0; col < a[0].length; col++)
+         {
+            value = a[row][col];
+            total = total + value;
+         }
+      }
+      return total / (a.length * a[0].length);
+   }
+​
+   public static void main(String[] args)
+   {
+      int[][] matrix = { {1,2,3},{4,5,6},{7,8,9}};
+      System.out.println(getAverage(matrix));
+   }
+}
+Activity: 8.2.3.1 ActiveCode (lcgetAverage)
+
+Some key things to notice about this code are:
+
+total is declared to be a double so that the result will be a double. If total was declared to be an int then the result would be an integer and the values after the decimal point would be thrown away.
+
+The array is passed in as an argument to the method.
+
+The number of rows is a.length
+
+The number of columns is a[0].length
+
+The number of times this loop executes is the number of rows times the number of columns.
+
+exercise Mixed up programs
+
+The following has the correct code to find the largest value in a 2D array. Drag the blocks from the left into the correct order on the right and indent them as well. Check your solution by clicking on the Check button. You will be told if any of the blocks are in the wrong order or have the wrong indention.
+
+Parsons (9_largest)
+
+You can step through this code using the Java Visualizer by clicking on the following Java Visualizer.
+
+Most nested loops with 2D Arrays use “row-major order” where the outer loop goes through each row. However, you can write nested loops that traverse in “column-major order” like below.
+
+coding exercise Coding Exercise
+
+What will the following code print out? Try to guess before you run it.
+
+public class ColumnMajorTraversal
+{
+  public static void main(String[] args)
+   {
+     int[][] array = { {1,2,3},{4,5,6}};
+
+     for (int col = 0; col < array[0].length; col++)
+     {
+         for (int row = 0; row < array.length; row++)
+         {
+             System.out.println( array[row][col] );
+         }
+     }
+   }
+}
+1 4 
+2 5 
+3 6 
+
+Activity: 8.2.3.3 ActiveCode (ColumnMajorTraversal)
+
+8.2.4. AP Practice
+8-2-6: Consider the following code segment. What is the last row of numbers printed when this code segment is executed?
+
+ int[][] points = { {11, 12, 13, 14, 15},
+                    {21, 22, 23, 24, 25},
+                    {31, 32, 33, 34, 35},
+                    {41, 42, 43, 44, 45}};
+ for (int row = 0; row < points.length; row++)
+ {
+     for (int col = points[0].length - 1; col >= row; col--)
+     {
+          System.out.print(points[row][col] + " ");
+     }
+     System.out.println();
+}
+A. 45 44 43 42 41
+B. 45
+C. 41 42
+xD. 45 44
+E. 44 45
+
+Activity: 8.2.4.1 Multiple Choice (AP8-2-1)
+
+This lesson is continued on the next page.
